@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  align-items: center;
+      background: url(https://th.bing.com/th/id/OIP.q7JQfXkpJk9P-xtXk1aZfwHaFj?pid=ImgDet&rs=1);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form {
+  background-color: #15172b;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px;
+  width: 320px;
+}
+
+.title {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.subtitle {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.input {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.cut {
+  background-color: #15172b;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+
+.cut-short {
+  width: 50px;
+}
+
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.input:focus ~ .placeholder {
+  color: #dc2f55;
+}
+
+.submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  // outline: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.submit:active {
+  background-color: #06b;
+}
+h1 {
+  margin: 0 0 0.25em;
+}
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #2c3e50;
+  background-image: none;
+
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 17em;
+  height: 3em;
+  line-height: 3;
+  background: #303245;
+  overflow: hidden;
+    border-radius: 12px;
+
+      color: #808097;
+
+}
+select {
+  background-color:  #303245;
+  flex: 1;
+  padding: 0.5em;
+  cursor: pointer;
+        color: #808097;
+
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #4d506d;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+      .sidebar-container {
+  position: fixed;
+  width: 220px;
+  height: 50%;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #1a1a1a;
+  color: #fff;
+  margin-top: -325px;
+}
+
+.content-container {
+  padding-top: 20px;
+}
+
+.sidebar-logo {
+  padding: 10px 15px 10px 30px;
+  font-size: 20px;
+  background-color: #2574A9;
+}
+
+.sidebar-navigation {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  position: relative;
+}
+
+.sidebar-navigation li {
+  background-color: transparent;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 20px;
+}
+
+.sidebar-navigation li a {
+  padding: 10px 15px 10px 30px;
+  display: block;
+  color: #fff;
+}
+
+.sidebar-navigation li .fa {
+  margin-right: 10px;
+}
+
+.sidebar-navigation li a:active,
+.sidebar-navigation li a:hover,
+.sidebar-navigation li a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.sidebar-navigation li::before {
+  background-color: #2574A9;
+  position: absolute;
+  content: '';
+  height: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 3px;
+  z-index: -1;
+}
+
+.sidebar-navigation li:hover::before {
+  width: 100%;
+}
+
+.sidebar-navigation .header {
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: #151515;
+  padding: 10px 15px 10px 30px;
+}
+
+.sidebar-navigation .header::before {
+  background-color: transparent;
+}
+
+.content-container {
+  padding-left: 220px;
+}
+
+</style>
+<body>
+  {{#each rows}}
+       <div class="sidebar-container">
+  <div class="sidebar-logo">
+    Links
+  </div>
+  <ul class="sidebar-navigation">
+    <li class="header">Navigation</li>
+    <li>
+      <a href="/home/{{this.userid}}">
+        <i class="fa fa-home" aria-hidden="true"></i> Homepage
+      </a>
+    </li>
+   
+    <li>
+      <a href="/myprofile/{{this.userid}}">
+        <i class="fa fa-users" aria-hidden="true"></i> My profile
+      </a>
+    </li>
+    
+   
+  </ul>
+</div>
+{{/each}}
+   {{#if success}}
+      <script>
+  alert("Password Updated Successfully.");
+  </script>
+
+
+					{{/if}}
+           {{#if alert}}
+      <script>
+  alert("Can not change password please try again.");
+  </script>
+
+
+					{{/if}}
+          {{#if mismatch}}
+      <script>
+  alert("please insert same password");
+  </script>
+
+
+					{{/if}}
+  {{#each rows}}
+
+    <form action="/update/{{this.userid}}" method="POST">
+        <div class="form">
+      <div class="title">Change password</div>
+      <div class="input-container ic1">
+        <input id="firstname" class="input" name="newpass" type="text" placeholder=" "  required/>
+        <div class="cut"></div>
+        <label for="firstname" class="placeholder">New Password</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="lastname" class="input" name="confirm" type="text" placeholder=" " required />
+        <div class="cut"></div>
+        <label for="lastname" class="placeholder">Confirm Password</label>
+      </div>
+     
+           
+      <button type="text" class="submit">Change</button>
+    </div>
+    </form>
+    {{/each}}
+</body>
+</html>

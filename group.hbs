@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dynamic add/remove input fields for social media</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+ <div class="sidebar-container">
+  <div class="sidebar-logo">
+    Links
+  </div>
+  <ul class="sidebar-navigation">
+    <li class="header">Navigation</li>
+    <li>
+      {{#each rows}}
+      <a href="/home/{{this.userid}}">
+        <i class="fa fa-home" aria-hidden="true"></i> Homepage
+      </a>{{/each}}
+    </li>
+    <li>
+      <a href="/staffmembers">
+        <i class="fa fa-users" aria-hidden="true"></i> Staff Members
+      </a>
+    </li>
+    <li>
+      <a href="/getalltask">
+        <i class="fa fa-users" aria-hidden="true"></i> Tasks
+      </a>
+    </li>
+    <li>
+      <a href="/taskmanager">
+        <i class="fa fa-cog" aria-hidden="true"></i> Task Manager
+      </a>
+    </li>
+    <li>
+      <a href="/groupassign">
+        <i class="fa fa-info-circle" aria-hidden="true"></i> Assign to Group
+      </a>
+    </li>
+  </ul>
+</div>
+ {{#if success}}
+      <script>
+  alert("Group members Assigned succesfully.");
+  </script>
+
+
+					{{/if}}
+                    {{#if alreadyexist}}
+      <script>
+  alert("you have already assign a group to this task.");
+  </script>
+
+
+					{{/if}}
+<body>
+
+    <div class="card text-center" style="margin-bottom:50px;">
+        <h1>Member Assigning For Group Tasks</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="form-group">
+                    <form name="add_name" id="add_name" action="/assigntogroup" method="POST">
+                        <div class="form-group">
+                            <label for="aoi">Which Group Task you want to assign members?</label>
+                             <tr>
+                                
+                                <!-- <td><input type="text" name="email[]" placeholder="Enter your Email"
+                                        class="form-control name_email" /></td> -->
+
+                                <td><select name="task" id="" class="form-control" required>
+                                    {{#each rows}}
+                                        <option value={{this.taskid}}>{{this.taskid}}/{{this.tasktitle}}</option>
+                                        {{/each}}
+                                    </select></td></tr>
+                        </div>
+                        <table class="table table-bordered table-hover" id="dynamic_field">
+                            <tr>
+                                
+                                <!-- <td><input type="text" name="email[]" placeholder="Enter your Email"
+                                        class="form-control name_email" /></td> -->
+                                                          <label for="aoi">Members</label>
+
+                                <td><select name="name" id="" class="form-control">
+                                    {{#each memb}}
+                                        <option value={{this.fullname}}>{{this.fullname}}</option>
+                                        {{/each}}
+                                    </select></td>
+                                <td><button type="button" name="add" id="add" class="btn btn-primary">Add More</button>
+                                </td>
+                               
+                            </tr>
+                        </table>
+                        <input type="submit" class="btn btn-success" name="submit" id="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+           
+           
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    var i = 1;
+
+
+
+
+
+    $("#add").click(function() {
+        i++;
+        if (true) {
+            console.log(i);
+            $('#dynamic_field').append('<tr id="row' + i +
+                '"><td><select name="name" required id="" class="form-control">{{#each memb}}<option value={{this.fullname}}>{{this.fullname}}</option>{{/each}}</select></td><td><button type="button" name="remove" id="' +
+                i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
+        }
+    });
+
+
+    $(document).on('click', '.btn_remove', function() {
+        var button_id = $(this).attr("id");
+        i = i - 1;
+        $('#row' + button_id + '').remove();
+        console.log(i);
+
+    });
+
+    
+});
+</script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html {
+  margin: 40px 20px;
+  margin-top: 170px;
+  background-color: #f3f0f0;
+
+
+}
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.alert .alert-link {
+  font-weight: bold;
+}
+.alert > p,
+.alert > ul {
+  margin-bottom: 0;
+}
+.alert > p + p {
+  margin-top: 5px;
+}
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+.alert-success hr {
+  border-top-color: #c9e2b3;
+}
+.alert-success .alert-link {
+  color: #2b542c;
+}
+.alert-info {
+  background-color: #f3f0f0;
+  min-height: 150px;
+  border-color: #bce8f1;
+  color: #000000;
+  border-color: black;
+}
+.alert-info hr {
+  border-top-color: #a6e1ec;
+}
+.alert-info .alert-link {
+  color: #245269;
+}
+.alert-warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+.alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+
+.alert-error .alert-link {
+  color: #843534;
+}
+.mybutton{
+margin-left: 390px;
+background-color: cornflowerblue;
+
+    }
+    .date{
+  right: 10px;
+  position:absolute;
+  font-size: 14px;
+}
+</style>
+  							{{#each rows}}
+
+<body>
+
+<div class="alert alert-info" role="alert"><strong>To:{{this.recipentname}}<span class="date"> {{this.date}}</span></strong><br>
+<strong>  subject:{{this.subject}}</strong><br>
+<strong>message:{{this.message}}</strong>
+
+</div>
+
+
+
+</body>
+							{{/each}}
+
+</html>

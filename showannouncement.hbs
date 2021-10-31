@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+body{
+  background-color: #f3f0f0;
+
+  }
+html {
+  margin: 40px 20px;
+
+}
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.alert .alert-link {
+  font-weight: bold;
+}
+.alert > p,
+.alert > ul {
+  margin-bottom: 0;
+}
+.alert > p + p {
+  margin-top: 5px;
+}
+.alert-success {
+  background-color: #f3f0f0;
+  border-color: #d6e9c6;
+  color: #0a0909;
+  border-color:slategrey;
+  height: 43px;
+}
+.alert-success hr {
+  border-top-color: #c9e2b3;
+}
+.alert-success .alert-link {
+  color: #2b542c;
+}
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+.alert-info hr {
+  border-top-color: #a6e1ec;
+}
+.alert-info .alert-link {
+  color: #245269;
+}
+.alert-warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+.alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+.alert-warning .alert-link {
+  color: #66512c;
+}
+.alert-error {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+.alert-error hr {
+  border-top-color: #e4b9c0;
+}
+.alert-error .alert-link {
+  color: #843534;
+}
+.date{
+  right: 10px;
+  position:absolute;
+  font-size: 14px;
+}
+.subject{
+  text-align: center;
+}
+.sent{
+  color:cornflowerblue;
+}
+ul.nav {
+	margin:0;
+	padding:0;
+	list-style:none;
+	height:36px; line-height:36px;
+	background:#0d7963; 
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+}
+ul.nav li {
+	border-right:15px solid #189b80; 
+	float:left;
+}
+ul.nav a {
+	display:block;
+	padding:0 28px;
+	color:#ccece6;
+	text-decoration:none;
+}
+ul.nav a:hover,
+ul.nav li.current a {
+	background:#086754;
+}
+  </style>
+</head>
+
+  <body>
+    <ul class="nav">
+      {{#each row}}
+  <li><a class="active" href="/home/{{this.userid}}">Home</a></li>
+    <li><a class="active" href="/compose/{{this.userid}}">Compose Message</a></li>
+
+  {{/each}}
+  
+</ul>
+    <h2 style="text-align: center;" class="sent">Announcement</h3>
+
+{{#each rows}}
+<a href="/eachannounce/{{this.annid}}"><div class="alert alert-success" role="alert"> <h5><i class="fas fa-bullhorn" style="color:red;"> </i>   {{this.title}}</span><span class="date"> {{this.date}}<span class="badge rounded-pill bg-danger">{{this.sh}}</span></span> </h5>  </div> </a>
+
+
+      {{/each}}
+
+
+</body>
+</html>
+
+
+

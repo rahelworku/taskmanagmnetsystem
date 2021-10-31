@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- CSS only -->
+  <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <title>Fixed Header with html and css | Collapsing Header Tutorial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- JavaScript Bundle with Popper -->
+  <sc <link href="style.css" rel="stylesheet">
+</head>
+
+<style>
+  body {
+    text-align: center;
+    padding: 40px;
+    background: #F5F5F5;
+  }
+
+  .container {
+    width: 500px;
+    text-align: center;
+    margin: auto;
+    position: relative;
+  }
+
+  .copyright {
+    margin-top: 50px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .copyright a {
+    text-decoration: none;
+    padding: 5px;
+    background: #c0392b;
+    color: #FFFFFF;
+  }
+
+  .copyright a:hover {
+    background: transparent;
+    color: #c0392b;
+  }
+
+  .button {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding-right: 30px;
+    padding-left: 70px;
+    position: relative;
+    background-color: rgb(41, 127, 184);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=1,Color=#ff123852,Positive=true)";
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#ff123852, Positive=true);
+
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=2,Color=#33000000,Positive=true)";
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=2, Color=#33000000, Positive=true);
+  }
+
+  .button span {
+    position: absolute;
+    left: 0;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .button:hover span,
+  .button.active span {
+    background-color: rgb(0, 102, 26);
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .button:active {
+    margin-top: 2px;
+    margin-bottom: 13px;
+
+    -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=1,Color=#ccffffff,Positive=true)";
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#ccffffff, Positive=true);
+  }
+
+  .button.orange {
+    background: #FF7F00;
+  }
+
+  .button.purple {
+    background: #8e44ad;
+  }
+
+  .button.turquoise {
+    background: #1abc9c;
+  }
+
+  .button.red {
+    background: #e74c3c;
+  }
+
+  body {
+    background: lightblue;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: "Lato", Sans-serif;
+    /*   position:relative; */
+  }
+
+  .box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn:link,
+  .btn:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 20px 40px;
+    border-radius: 100px;
+    display: inline-block;
+    transition: all .5s;
+  }
+
+  .btn-white {
+    background: #fff;
+    color: #000;
+  }
+
+  .btn:hover {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
+
+  .btn:active {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) transform:translateY(-1px);
+  }
+
+  .btn-bottom-animation-1 {
+    animation: comeFromBottom 1s ease-out .8s;
+  }
+
+  .btn::after {
+    content: "";
+    text-decoration: none;
+    text-transform: uppercase;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 100px;
+    display: inline-block;
+    z-index: -1;
+    transition: all .5s;
+  }
+
+  .btn-white::after {
+    background: rgb(253, 253, 253);
+  }
+
+  .btn-animation-1:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+
+  @keyframes comeFromBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, Sans-serif;
+    background-color: #070617;
+  }
+
+  .dummy_page {
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 60px 0px;
+  }
+
+  /* STYLES SPECIFIC TO FOOTER  */
+  .footer {
+    width: 100%;
+    position: absolute;
+    height: auto;
+    background-color: #070617;
+    bottom: 170px;
+  }
+
+  .footer .col {
+    width: 190px;
+    height: auto;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0px 20px 20px 20px;
+  }
+
+  .footer .col h1 {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 17px;
+    padding: 20px 0px 5px 0px;
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.250em;
+  }
+
+  .footer .col ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer .col ul li {
+    color: #999999;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: bold;
+    padding: 5px 0px 5px 0px;
+    cursor: pointer;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+  }
+
+  .social ul li {
+    display: inline-block;
+    padding-right: 5px !important;
+  }
+
+  .footer .col ul li:hover {
+    color: #ffffff;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+  }
+
+  .clearfix {
+    clear: both;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    .contain {
+      width: 1200px;
+      margin: 0 auto;
+    }
+  }
+
+  @media only screen and (max-width: 1139px) {
+    .contain .social {
+      width: 1000px;
+      display: block;
+    }
+
+    .social h1 {
+      margin: 0px;
+    }
+  }
+
+  @media only screen and (max-width: 950px) {
+    .footer .col {
+      width: 33%;
+    }
+
+    .footer .col h1 {
+      font-size: 14px;
+    }
+
+    .footer .col ul li {
+      font-size: 13px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .footer .col {
+      width: 50%;
+    }
+
+    .footer .col h1 {
+      font-size: 14px;
+    }
+
+    .footer .col ul li {
+      font-size: 13px;
+    }
+  }
+
+  @media only screen and (max-width: 340px) {
+    .footer .col {
+      width: 100%;
+    }
+  }
+
+
+
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    text-align: center;
+  }
+
+  .wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  header {
+    background: #262626;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+  }
+
+
+
+
+
+  nav {
+    float: right;
+    line-height: 100px;
+
+  }
+
+  nav a {
+    text-decoration: none;
+    font-family: poppins;
+    letter-spacing: 2px;
+    font-size: 17px;
+    margin: 0 10px;
+    color: #fff;
+  }
+
+  .banner-area {
+    width: 100%;
+    height: 500px;
+    position: fixed;
+    top: 100px;
+        background: url(https://i1.wp.com/ignitecorp.com.au/wp-content/uploads/2016/07/Website-background.jpg) no-repeat;
+
+    background-size: auto;
+    opacity: 0.8;
+    /*   -webkit-background-size: contain;*/
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .banner-area h2 {
+    padding-top: 8%;
+    font-size: 40px;
+    font-family: poppins;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+  }
+
+  .content-area {
+    width: 100%;
+    position: relative;
+    top: 450px;
+    background: #ebebeb;
+    height: 1200px;
+  }
+
+  .content-area h2 {
+    font-family: poppins;
+    letter-spacing: 4px;
+    padding-top: 30px;
+    font-size: 40px;
+    margin-left: 300px;
+  }
+
+  .content-area p {
+    padding: 2% 0px;
+    font-family: poppins;
+    line-height: 30px;
+  }
+
+  .list-group {
+    width: 300px;
+    margin-left: 40px;
+    float: left;
+
+  }
+
+  .vl {
+    border-left: 6px solid rgb(250, 250, 250);
+    height: 15px;
+  }
+</style>
+
+<body>
+  <div class="box-area">
+    <header>
+      <div class="wrapper">
+        <div class="logo">
+        </div>
+                          <img height="112px "  src="https://www.fitsumbahrufoundation.org/wp-content/uploads/2018/11/Addis_Ababa_University_logo-3-1-e1543522124412.png">
+
+        <nav>
+                     {{#each results}}
+
+          <a href="/mytasklist/{{this.userid}}">Get my task</a> <span class="vl"></span><a href="/showannouncement2/{{this.userid}}">Announcements</a><span
+            class="vl"></span>                              
+ <a href="/makereportform/{{this.userid}}">Make report</a> <span class="vl"></span><a
+            href="/compose/{{this.userid}}">Compose Message</a>
+          <span class="vl"></span><a href="/complainform/{{this.userid}}">Complain</a>
+        </nav>
+      </div>
+    </header>
+    <div class="banner-area">
+      <h2><i class="fas fa-tasks" style="color: yellow;"></i> Astawash task Managment system</h2>
+      <div class="box">
+        <a href="/mytasklist/{{this.userid}}" class="btn btn-white btn-animation-1">Get Started</a>                
+
+      </div>
+    </div>
+            {{/each}}
+                     {{#each results}}
+
+    <div class="content-area">
+      <div class="wrapper">
+        <h2><i class="fas fa-quote-left"></i>What can you do?<i class="fas fa-quote-right"></i></h2>
+        <ul class="list-group">
+ </a>
+                    <a href="/deadlineforstaff/{{this.userid}}" style="text-decoration: none;">  
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+             <span><i class="fas fa-stopwatch" style="color: purple;"></i> Deadline Reminder</span> 
+          <span class="badge rounded-pill bg-danger">{{/each}}{{#if deadline}}{{this.deadline}}{{/if}}{{#each results}}</span>
+
+          </li></a>
+          <a href="/inbox/{{this.userid}}" style="text-decoration: none;">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+ <span><i class="fas fa-envelope" style="color: brown;"></i> Inbox</span> 
+        <span class="badge rounded-pill bg-danger">{{/each}}{{#if inboxs}}{{this.inboxs}}{{/if}}{{#each results}}</span>
+
+            </li>
+             <a href="/showannouncement2/{{this.userid}}" style="text-decoration: none;">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+ <span><i class="fas fa-bullhorn" style="color: yellow;"></i> Announcement</span> 
+          <span class="badge rounded-pill bg-danger">{{/each}}{{#if announce}}+{{this.announce}}{{/if}}{{#each results}}</span>
+
+          </li></a>
+         <a style="text-decoration: none;" href="/mytasklist/{{this.userid}}"> <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-tasks" style="color: #1abc9c;"></i>  Get Individual tasks</span> 
+          <span class="badge rounded-pill bg-danger">{{/each}}{{#if mytasklist}}{{this.mytasklist}}{{/if}}{{#each results}}</span>
+
+          </li></a>
+           <a style="text-decoration: none;" href="/mygrouptasklist/{{this.userid}}"> <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-tasks" style="color: #1abc9c;"></i>  Get group tasks</span> 
+          <span class="badge rounded-pill bg-danger">{{/each}}{{#if grouptask}}{{this.grouptask}}{{/if}}{{#each results}}</span>
+
+          </li></a>
+          <a href="/sent/{{this.userid}}" style="text-decoration: none;">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                         <span><i class="fas fa-paper-plane" style="color: blue;"></i>  Sent</span> 
+
+            </li>
+          </a>
+             <a href="/notifyrequest/{{this.userid}}" style="text-decoration: none;">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+             <span><i class="far fa-clipboard" style="color:deeppink;"></i>  Report Requests</span> 
+        <span class="badge rounded-pill bg-danger">{{/each}}{{#if reportrequests}}{{this.reportrequests}}{{/if}}{{#each results}}</span>
+
+          </li></a>
+           
+          <a href="/deadlinechanges/{{this.userid}}" style="text-decoration: none;">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+ <span><i class="fas fa-exchange-alt" style="color: #e74c3c;"></i> Deadline changes</span> 
+           <span class="badge rounded-pill bg-danger">{{/each}}{{#if dcc}}{{this.dcc}}{{/if}}{{#each results}}</span>
+
+          </li></a>
+          <a href="/deletedtask/{{this.userid}}" style="text-decoration: none;">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+ <span><i class="fas fa-times" style="color: red;"></i> Removed Tasks</span> 
+          <span class="badge rounded-pill bg-danger">{{/each}}{{#if deletedtask}}{{this.deletedtask}}{{/if}}{{#each results}}</span>
+
+          </li></a><a style="text-decoration: none;" href="/myprofile/{{this.userid}}"> <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-user-circle" style="color: green;"></i>  My profile</span> 
+
+          </li></a>
+        </ul>
+        <div>
+          <h4><i class="fas fa-check"></i>Get tasks you are assigned for </h4>
+          <h4><i class="fas fa-check"></i>report your task progress</h4>
+          <h4><i class="fas fa-check"></i>Get all Announcements </h4>
+          <h4><i class="fas fa-check"></i>Get reminder of task deadlines</h4>
+
+        </div>
+        <br><br><br><br> <br><br> <br><br>
+        <div class="container">
+          <h3>Choose where to go...</h3><br>
+          <a href="/mytasklist/{{this.userid}}" class="button"><span>✓</span>My Tasks </a><br>
+          <a href="/showannouncement2/{{this.userid}}" class="button purple"><span>✓</span>Announcements</a>
+          <a href="/makereportform/{{this.userid}}" class="button turquoise"><span>✓</span>Make report</a>
+          <a href="/compose/{{this.userid}}" class="button red"><span>✓</span>compose message</a>
+          <a href="/complainform/{{this.userid}}" class="button"><span>✓</span>Complain </a><br>
+
+        </div>
+
+
+        <div class="dummy_page">
+        </div>
+        <!-- FOOTER START -->
+        <div class="footer">
+          <div class="contain">
+            
+
+
+            <div class="col">
+              <h1>Quick links</h1>
+              <ul>
+            <a href="/inbox/{{this.userid}}" style="text-decoration: none;">  <li>Inbox</li></a>
+               <a href="/mytasklist/{{this.userid}}" style="text-decoration: none;"> <li>Get My Tasks</li></a>
+             <a href="/showannouncement2/{{this.userid}}"  style="text-decoration: none;">   <li>Announcements</li></a>
+              <a  href="/makereportform/{{this.userid}} "  style="text-decoration: none;">  <li>Make Report</li></a>
+            <a href="/"  style="text-decoration: none;">  <li>Log Out</li></a>
+              </ul>
+            </div>
+
+
+            <div class="col">
+              <h1>Support</h1>
+              <ul>
+                <a style="text-decoration: none;" href="/contactus"><li>Contact us</li></a>
+                <li>Help</li>
+              </ul>
+            </div>
+           
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- END OF FOOTER -->
+      </div>
+    </div>
+                {{/each}}
+
+  </div>
+
+</body>
+
+</html>
